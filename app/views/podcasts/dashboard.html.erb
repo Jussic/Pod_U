@@ -1,0 +1,52 @@
+  <%= render 'layouts/header'; %>
+
+
+<div id = "podcast_show"> 
+    <div class = "show_banner"> 
+        <div class = "wrapper_skinny"> 
+         <h1> <%= @podcast.title %> </h1>
+        </div>
+     </div>
+    
+    <div id = "links"> 
+        <div class = "wrapper_skinny">
+            <ul> 
+                <li class = "current"> Episodes</li>
+                <li> <%= link_to "New Episodes", new_podcast_episode_path(@podcast) %> </li>
+                <li> <%=  link_to "View Podcast", podcast_path(current_podcast) %></li>
+                <li> <%= link_to "Account_Settings", edit_podcast_registration_path %> </li>
+            </ul> 
+             </div>
+        </div>
+
+            <div id = "episodes">
+            <div class = "wrapper_skinny">
+                <ul class = "cf">
+                    <% @episodes.each do |episode| %>
+                    <li class = "cf">
+                        <div class = "episode_thumbnail">
+                            <a href = "episode.html">
+                              <%= image_tag episode.episode_thumbnail.url(:medium) %>
+                            </a>
+                        </div>
+                        <div class = "episode_overview">
+                            <h2> <a href <%= link_to episode.title, podcast_episode_path(@podcast, episode) %> </h2>
+                            <p class="description"> <%= truncate(episode.description, length: 160) %> </p>
+                            <div class = "authorized_links"> 
+                            <p> <%= @podcast.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+                                              <span class="timestamp"> Posted <%= time_ago_in_words(@podcast.created_at) %> ago. </span>
+
+                            <%= link_to "Edit", edit_podcast_episode_path(@podcast, episode) %>
+                            <%= link_to "Delete", podcast_episode_path(@podcast, episode), method: :delete, data: {confirm: "Are you sure?"} %>
+                            </div>
+                        </div>
+                    </li>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+     <%= will_paginate @episodes, previous_label: "Previous", next_label: "Next" %>
+
+    

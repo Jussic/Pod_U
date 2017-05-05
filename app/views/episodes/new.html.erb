@@ -1,0 +1,27 @@
+<div id = "podcast_show"> 
+    <div class = "show_banner"> 
+        <div class = "wrapper_skinny"> 
+        <h1> The Tech Bytes Dashboard </h1>
+        </div>
+     </div>
+    
+    <div id = "links"> 
+        <div class = "wrapper_skinny">
+            <ul> 
+                <li> <%=  link_to "Episodes", root_path %> </li>
+                <li> <%= link_to "New Episodes", new_podcast_episode_path(@podcast),  class: "current" %> </li>
+                <li> <%=  link_to "View Podcast", podcast_path(current_podcast) %></li>
+                <li> <%= link_to "Account_Settings", edit_podcast_registration_path %> </li>
+            </ul> 
+             </div>
+        </div>
+
+<!-- Creating form for adding an episode -->
+
+     <div class = "wrapper_skinny"> 
+         
+         <%= render 'form' %>
+   
+        </div>
+    </div>
+</div>

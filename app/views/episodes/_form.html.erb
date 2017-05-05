@@ -1,0 +1,27 @@
+<%=  form_for ([@podcast,  @episode]) do |f| %>
+        <div class = "field"> 
+            <%= f.label :title %> <br> 
+            <%= f.text_field :title %> <br>
+        </div>
+    
+        <div class = "field">
+            <%= f.label :description %> <br> 
+            <%= f.text_area :description %>
+        </div>
+        
+        <div class = "field">
+            <%= f.label :episode_thumbnail %> <br> 
+            <%= f.file_field :episode_thumbnail %>
+        </div> 
+        
+        <div class = "field">
+            <%= f.label :mp3 %><br> 
+            <%= f.file_field :mp3 %>
+        </div> 
+        
+        <div style="border: 3px solid black; overflow: hidden; margin: 0px auto; max-width: 736px;">
+<iframe src="https://www.speakpipe.com/voice-recorder" width="10" height="500" style="border: 0px none; margin-left: -120px; height: 859px; margin-bottom: -350px; margin-top: -70px; width: 976px;"></iframe></div>
+ <br>
+        <%=f.submit class: "button button_highlight button_block" %>
+        
+<% end %>

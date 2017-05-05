@@ -1,0 +1,21 @@
+<div id = "background">
+<header id= "main_header" class = "cf">
+      <div class = "wrapper_wide">
+            <a href= "https://views-podu-cloned-jussic.c9users.io/"> <img src="https://image.ibb.co/bGLqi5/Podu_Logo.png" alt="Podu Logo" border="0" style="float:left;width:10%;height:10%;" /></a>
+          <%= link_to " ", root_path, id: "logo" %> 
+       <nav>
+           <ul>
+            <li><%= link_to "Explore", podcasts_path %></li>
+            <li><%= link_to "Sign In", new_podcast_session_path %></li>
+            <li><%= link_to "Create a Podcast", new_podcast_registration_path %></li>
+        </ul>
+        </nav> 
+        </div>
+    </header>
+    <div class= "wrapper_skinny">
+        <br> <br> <br>
+        <h1> Discover your new favorite <br> podcast, or create your own.</h1>
+        <%= link_to "Create a Podcast", new_podcast_registration_path, class: "button button_highlight" %>
+        <%= link_to "Explore", podcasts_path, class: "button button_white" %>
+    </div>    
+</div>

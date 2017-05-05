@@ -1,0 +1,33 @@
+ <div id = "podcast_show"> 
+        <div id = "show_banner">
+        <div class = "wrapper_skinny"> 
+            <h1> Search Results </h1>
+            <p class= "description">
+        </div>
+        </div>
+        <div id = "breadcrumb"> 
+        <%= link_to podcasts_path do %> 
+        All Podcasts <span> / </span> 
+        The Tech Bytes
+        <% end %>
+        </div>
+        
+        <div id = "episodes">
+            <div class = "wrapper_skinny">
+                <ul class = "cf">
+                    <li class = "cf">
+                        <div class = "episode_thumbnail">
+                                 <%= render 'search/form' %>
+                            </a>
+                        </div>
+                        <div class = "episode_overview">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+ 
+ 

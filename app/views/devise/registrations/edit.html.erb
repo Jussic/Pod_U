@@ -1,0 +1,111 @@
+<div id = "podcast_show"> 
+        <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        </head>
+        <br> <br> 
+        <center> 
+        <img id="imageToSwap" class="profile" src="https://www.thelifestylerenovation.com/wp-content/uploads/slide-toneup-8weeks-background1.jpg;">
+        </center>
+        
+        <div id = "#">
+        <div class = "wrapper_skinny"> 
+            <h1> The Tech Bytes Dashboard </h1>
+        </div>
+        </div>
+    
+        <div id = "links"> 
+            <div class = "wrapper_skinny">
+               <ul> 
+                <li> <%=  link_to "Episodes", root_path %> </li>
+                <li> <%= link_to "New Episodes", new_podcast_episode_path(@podcast) %> </li>
+                <li> <%=  link_to "View Podcast", podcast_path(current_podcast) %></li>
+                <li> <%= link_to "Account_Settings", edit_podcast_registration_path %> </li>
+               </ul> 
+         </div>
+      </div>
+      
+    
+
+<div id = "form">
+      <div class = "wrapper_skinny"> 
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+  
+        <h3> Account Information </h3>
+
+        <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, autofocus: true %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, autofocus: true %>
+      </div>
+      
+          <div class="field">
+        <%= f.label :thumbnail %><br />
+        <%= f.file_field :thumbnail, autofocus: true %>
+      </div>
+      
+      <h3> Podcast Links </h3>
+        <div class="field">
+        <%= f.label :itunes %><br />
+        <%= f.text_field :itunes %>
+      </div>
+      
+        <div class="field">
+        <%= f.label :stitcher %><br />
+        <%= f.text_field :stitcher %>
+      </div>
+      
+        <div class="field">
+        <%= f.label :podbay %><br />
+        <%= f.text_field :podbay %>
+      </div>
+    
+      <br> <br> 
+            <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+    
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <hr> <br> <br> 
+      <h3> Update Account Password </h3>
+
+      <div class="field">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+      
+      <hr> 
+    
+      <div class="field">
+        <%= f.label :current_password %> <i>(Enter current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Update", class: "button button_highlight button_block"  %>
+      </div>
+    <% end %>
+    
+    <br> <br> <br>
+    <hr> 
+    
+    <center><h3>Cancel my account</h3>
+    <p>No longer want to be apart of Podu? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "button button_highlight button_block" %></p>
+    </center>
+    <!--<%= link_to "Back", :back %>-->
+</div>
+</div>

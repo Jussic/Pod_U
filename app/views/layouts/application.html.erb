@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Podu</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body> 
+
+<% if alert %>
+<div id="notice_wrapper">
+  <p class="alert"><%=alert %> </p>
+  </div>
+<% elsif notice %>
+  <div id="notice_wrapper">
+  <p class="notice"><%=notice %> </p>
+  </div>
+<% end %>
+
+<% unless current_page?(root_path) %>
+  <%= render 'layouts/header'; %>
+<% end %>
+
+<%= yield %>
+
+<!--Small JS script controling notice time out -->
+<script>
+  $(document).ready(function(){
+  })
+  setTimeout(function() {
+    $('#notice_wrapper').fadeOut("slow", function() {
+    });
+  }, 4500 );
+</script>
+</body>
+</html>

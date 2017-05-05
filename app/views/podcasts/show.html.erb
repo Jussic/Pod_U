@@ -1,0 +1,51 @@
+<div id = "podcast_show"> 
+        <div id = "show_banner">
+        <div class = "wrapper_skinny"> 
+            <h1> <%= @podcast.title %> </h1>
+            <p class= "description"> <%= @podcast.description %> </p>
+           
+           
+            <% unless @podcast.itunes.blank? %>
+                <a href = "<%= @podcast.itunes %>" class ="subscribe_link"> iTunes</a>
+            <% end %>    
+            <% unless @podcast.stitcher.blank? %>
+                <a href = "<%= @podcast.stitcher %>" class ="subscribe_link"> Stitcher</a>
+            <% end %>    
+            <% unless @podcast.podbay.blank? %>
+                <a href = "<%= @podcast.podbay %>" class ="subscribe_link"> PodBay</a>
+            <% end %>
+        </div>
+        </div>
+        <div id = "breadcrumb"> 
+        <%= link_to podcasts_path do %> 
+        All Podcasts <span> / </span> 
+        The Tech Bytes
+        <% end %>
+        </div>
+        
+                
+        <div id = "episodes">
+            <div class = "wrapper_skinny">
+                <ul class = "cf">
+                    <% @episodes.each do |episode| %>
+                    <li class = "cf">
+                        <div class = "episode_thumbnail">
+                            <a href = "episode.html">
+                                 <%= image_tag episode.episode_thumbnail.url(:medium)  %>
+                            </a>
+                        </div>
+                        <div class = "episode_overview">
+                            <h2> <%= link_to episode.title, podcast_episode_path(@podcast, episode) %> </h2>
+                            <p class="description"> <%= truncate(episode.description, length: 200) %></p>
+                            <br> <br>
+                            <span class="timestamp"> Posted <%= time_ago_in_words(@podcast.created_at) %> ago. </span>
+                        </div>
+                    </li>
+                    <% end %> 
+                </ul>
+            </div>
+        </div>
+    </div>
+        <%= will_paginate @episodes, previous_label: "Previous", next_label: "Next" %>
+
+</div>

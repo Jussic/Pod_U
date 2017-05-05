@@ -1,0 +1,11 @@
+<ul class='results'>
+  <% if @results.blank? %>
+    <li><i>No Results</i></li>
+  <% else %>
+    <% @results.each do |result| %>
+      <li>
+        <h1> <%= link_to result.try(:title), podcast_path(result) %> </h1>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
