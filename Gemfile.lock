@@ -133,7 +133,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
     pg (0.19.0)
-    rack (1.6.5)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
